@@ -15,7 +15,7 @@
         </div>
         <div>
 
-            {{MyPokemon.name}}
+          <strong> {{MyPokemon.name}}</strong> 
         </div>
         <div class="t-size py-2">
             {{MyPokemon.type1}}
