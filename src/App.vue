@@ -2,7 +2,8 @@
 import axios from 'axios';
 import AppPokemonMain from './components/AppPokemonMain.vue';
 import AppPokemonHeader from './components/AppPokemonHeader.vue';
-import {store} from './store'
+import {store} from './store';
+
 
 
   export default {
@@ -19,6 +20,7 @@ import {store} from './store'
     },mounted() {
       axios.get(store.apiUrl).then((response)=> {
         store.pokemonList = response.data.docs
+        store.loading = false
 
         console.log(store.pokemonList)
       })

@@ -1,9 +1,11 @@
 <script>
     import AppPokemonCards from './AppPokemonCards.vue';
     import {store} from '../store.js';
+    import AppLoader from './AppLoader.vue'
     export default {
        components:{
-         AppPokemonCards
+         AppPokemonCards,
+         AppLoader
        },
        data() {
         return {
@@ -14,11 +16,12 @@
 </script>
 <template >
     <div class="container d-flex justify-content-center align-items-center mt-4">
-        <div class="row justify-content-center pokedex p-2 ">
-                <div  v-for="(pokemon, index) in store.pokemonList" :key="index"   class="col-6 col-md-4 col-lg-3 pkmn-card" >
-                        <AppPokemonCards :MyPokemon="pokemon"  />
-                </div>
+        <div  class="row justify-content-center pokedex p-2 " v-if="store.loading === false">
+            <div  v-for="(pokemon, index) in store.pokemonList" :key="index"   class="col-6 col-md-4 col-lg-3 pkmn-card" >
+                <AppPokemonCards :MyPokemon="pokemon"  />
+            </div>
         </div>
+        <AppLoader v-else/>
     </div>
 </template>
 <style lang="scss" scoped>
