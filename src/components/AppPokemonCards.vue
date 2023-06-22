@@ -6,12 +6,45 @@
     }
 </script>
 <template lang="">
-    <div class="d-flex justify-content-center">
+    <div class="d-flex align-items-center flex-column card m-2 " :class="MyPokemon.type1 === 'Grass'? 'green-bkg' : MyPokemon.type1 === 'Water' ? 'blue-bkg' : MyPokemon.type1 === 'Fire'? 'red-bkg': ''">
+
         <img :src="MyPokemon.imageUrl" alt=""/>
+        <div>
+
+            {{MyPokemon.number}}
+        </div>
+        <div>
+
+            {{MyPokemon.name}}
+        </div>
+        <div>
+            {{MyPokemon.type1}}
+        </div>
     </div>
-    <div class="text-center">
-        {{MyPokemon.name}}
-    </div>
+
+   
 </template>
-<style lang="scss">
+<style lang="scss" >
+img{
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 5rem;
+    margin-top: 1.5rem;
+}
+
+
+.green-bkg{
+    background-color: #DEFDE0 !important
+}
+
+.blue-bkg{
+    background-color: #DEF3FD !important; 
+}
+
+.red-bkg{
+    background-color: #FDDFDF !important;
+}
+    
+
 </style>

@@ -33,6 +33,6 @@ import {store} from './store'
   </div>
 </template>
 <style lang="scss">
-@use './styles/generals.scss'
+@use './styles/generals.scss' as *
   
 </style>

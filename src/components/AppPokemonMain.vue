@@ -14,14 +14,27 @@
 </script>
 <template >
     <div class="container">
-        <div class="row">
-            <div v-for="(pokemon, index) in store.pokemonList" :key="index" class="col-6 col-md-4 col-lg-3" >
-
-                <AppPokemonCards :MyPokemon="pokemon" />
-            </div>
+        <div class="row justify-content-center pokedex p-3 ">
+                <div  v-for="(pokemon, index) in store.pokemonList" :key="index"   class="col-6 col-md-4 col-lg-3" >
+                        <AppPokemonCards :MyPokemon="pokemon"  />
+                </div>
         </div>
     </div>
 </template>
-<style >
-    
+<style lang="scss" scoped>
+.pokedex{
+    height: 500px;
+    overflow: auto;
+    background-color: #797E81;
+    border-top: 30px solid #DEDEDE;
+    border-bottom: 30px solid #DEDEDE;
+    border-left: 20px solid #DEDEDE;
+    border-right:20px solid #DEDEDE;
+    border-radius: 1rem;
+    box-shadow: 10px 10px 20px  rgba(0, 0, 0, 0.575);
+    .pkmn-card{
+        min-width: 180px;
+    }
+}
+
 </style>
