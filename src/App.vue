@@ -23,6 +23,7 @@ import {store} from './store';
         store.loading = false
 
         console.log(store.pokemonList)
+        console.log(store.loading)
       })
       
     },

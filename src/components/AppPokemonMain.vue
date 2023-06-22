@@ -3,15 +3,15 @@
     import {store} from '../store.js';
     import AppLoader from './AppLoader.vue'
     export default {
-       components:{
-         AppPokemonCards,
-         AppLoader
-       },
-       data() {
-        return {
-            store
-        }
-       },
+        components:{
+          AppPokemonCards,
+          AppLoader
+        },
+        data() {
+            return {
+                store
+            }
+        },
     }
 </script>
 <template >
@@ -26,7 +26,8 @@
 </template>
 <style lang="scss" scoped>
 .pokedex{
-    height: 500px;
+    height: 700px;
+    width: 80%;
     overflow: auto;
     background-color: #797E81;
     border-top: 30px solid #DEDEDE;

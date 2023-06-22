@@ -32,7 +32,11 @@ import{store} from '../store'
     background: linear-gradient(0deg, rgba(245,245,245,1) 48%, rgba(18,2,2,1) 48%, rgba(0,0,0,1) 52%, rgba(255,0,0,1) 52%);
     animation: s1 1s infinite linear;
     box-shadow: 0 0 10px black;
-    position:relative
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 15%;
 }
 
 .custom-loader-2 {
@@ -42,10 +46,7 @@ import{store} from '../store'
     background: rgb(245,245,245);
     background: radial-gradient(circle, rgba(245,245,245,1) 36%, rgba(0,0,0,1) 36%);
     animation: s1 1s infinite linear;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%)
+   
 }
 
 @keyframes s1 {
