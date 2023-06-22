@@ -25,15 +25,17 @@ export default {
     </div>
 </template>
 <style lang="scss" scoped>
+@use '../styles/partials/variables' as *;
+
 .pokedex {
     height: 505px;
     width: 80%;
     overflow: auto;
     background-color: #797E81;
-    border-top: 30px solid #DEDEDE;
-    border-bottom: 30px solid #DEDEDE;
-    border-left: 20px solid #DEDEDE;
-    border-right: 20px solid #DEDEDE;
+    border-top: $pokedex_y_border;
+    border-bottom: $pokedex_y_border;
+    border-left: $pokedex_x_border;
+    border-right: $pokedex_x_border;
     border-radius: 1rem;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.575);
 
