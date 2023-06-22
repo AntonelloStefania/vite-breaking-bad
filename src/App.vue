@@ -29,6 +29,8 @@ import {store} from './store'
 <template>
   <div>
     <AppPokemonHeader />
+  </div>
+  <div>
     <AppPokemonMain />
   </div>
 </template>

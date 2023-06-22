@@ -6,10 +6,10 @@
     }
 </script>
 <template lang="">
-    <div class="d-flex align-items-center flex-column card m-2 " :class="MyPokemon.type1 === 'Grass'? 'green-bkg' : MyPokemon.type1 === 'Water' ? 'blue-bkg' : MyPokemon.type1 === 'Fire'? 'red-bkg': ''">
+    <div class="d-flex align-items-center flex-column card mx-2 my-1 " :class="MyPokemon.type1 === 'Grass'? 'green-bkg' : MyPokemon.type1 === 'Water' ? 'blue-bkg' : MyPokemon.type1 === 'Fire'? 'red-bkg': ''">
 
         <img :src="MyPokemon.imageUrl" alt=""/>
-        <div>
+        <div class="t-size pt-2">
 
             {{MyPokemon.number}}
         </div>
@@ -17,7 +17,7 @@
 
             {{MyPokemon.name}}
         </div>
-        <div>
+        <div class="t-size py-2">
             {{MyPokemon.type1}}
         </div>
     </div>
@@ -46,5 +46,8 @@ img{
     background-color: #FDDFDF !important;
 }
     
+.t-size{
+    font-size: 12px;
+}
 
 </style>

@@ -13,9 +13,9 @@
     }
 </script>
 <template >
-    <div class="container">
-        <div class="row justify-content-center pokedex p-3 ">
-                <div  v-for="(pokemon, index) in store.pokemonList" :key="index"   class="col-6 col-md-4 col-lg-3" >
+    <div class="container d-flex justify-content-center align-items-center mt-4">
+        <div class="row justify-content-center pokedex p-2 ">
+                <div  v-for="(pokemon, index) in store.pokemonList" :key="index"   class="col-6 col-md-4 col-lg-3 pkmn-card" >
                         <AppPokemonCards :MyPokemon="pokemon"  />
                 </div>
         </div>
