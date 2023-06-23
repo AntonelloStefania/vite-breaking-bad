@@ -5,7 +5,6 @@ export const store = reactive({
     myUrl: '',
     pokemonList: [],
     loading: true,
-
     pkmn_types: [
         "Bug",
         "Dark",
@@ -26,6 +25,7 @@ export const store = reactive({
         "Steel",
         "Water"
     ],
-
+    searchPokemon: '',
+    searchResults: [],
     selectedValue: '',
 })

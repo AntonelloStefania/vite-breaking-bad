@@ -16,7 +16,7 @@
     }
 </script>
 <template lang="">
-    <div class="d-flex align-items-center flex-column card mx-2 my-1 " :style="{ 'background-color':getLowercaseColor}">
+    <div class="d-flex align-items-center flex-column card mx-2 my-1 color-filter " :style="{ 'background-color':getLowercaseColor}">
 
         <img :src="MyPokemon.imageUrl" alt=""/>
         <div class="t-size pt-2">
