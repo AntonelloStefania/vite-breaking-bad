@@ -18,12 +18,9 @@ import {store} from './store';
       }
     },mounted() {
       this.getPokemonType()
-    }
-    
-    
-    
-    ,methods:{
-       getPokemonType(){
+
+    },methods:{
+        getPokemonType(){
               
           store.myUrl  = store.apiUrl
 
@@ -35,9 +32,6 @@ import {store} from './store';
           axios.get(store.myUrl).then((response)=> {
             store.pokemonList = response.data.docs
             store.loading = false
-    
-            console.log(store.pokemonList)
-            console.log(store.loading)
         })
       }
     }

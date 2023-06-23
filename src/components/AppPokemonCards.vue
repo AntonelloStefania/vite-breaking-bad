@@ -2,15 +2,26 @@
     export default {
         props:{
             MyPokemon : Object
+        },
+        
+        data() {
+            return {
+                
+            }
+        },computed:{
+            getLowercaseColor(){
+              return  this.MyPokemon.color.toLowerCase()
+            }
         }
     }
 </script>
 <template lang="">
-    <div class="d-flex align-items-center flex-column card mx-2 my-1 " :class="MyPokemon.type1 === 'Grass'? 'green-bkg' : MyPokemon.type1 === 'Water' ? 'blue-bkg' : MyPokemon.type1 === 'Fire'? 'red-bkg': ''">
+    <div class="d-flex align-items-center flex-column card mx-2 my-1 " :style="{ 'background-color':getLowercaseColor}">
 
         <img :src="MyPokemon.imageUrl" alt=""/>
         <div class="t-size pt-2">
             {{MyPokemon.number}}
+            
         </div>
         <div>
           <strong> {{MyPokemon.name}}</strong> 
@@ -32,18 +43,6 @@ img{
 }
 
 
-.green-bkg{
-    background-color: #DEFDE0 !important
-}
-
-.blue-bkg{
-    background-color: #DEF3FD !important; 
-}
-
-.red-bkg{
-    background-color: #FDDFDF !important;
-}
-    
 .t-size{
     font-size: 12px;
 }

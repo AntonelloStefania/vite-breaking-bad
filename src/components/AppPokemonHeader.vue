@@ -1,34 +1,13 @@
 <script>
     import {store} from '../store.js'
     export default {
-       components :{
-      
-    
-    },
     data() {
         return {
             store,
-            
-    }
-    },mounted(){
+    }}
+}
+   
 
-        this.getPokemonType()
-    }
-    
-    ,methods:{
-        getPokemonType(){
-            
-            store.myUrl  = store.apiUrl
-
-            if(store.selectedValue !== ''){
-               store.myUrl += `&eq[type1]=${store.selectedValue}`
-            }
-
-           
-        }
-        }
-        
-    }
 </script>
 <template lang="">
 <div class="container">
