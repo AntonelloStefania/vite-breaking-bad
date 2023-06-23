@@ -11,19 +11,22 @@
 </script>
 <template lang="">
 <div class="container">
+    <div class="d-flex justify-content-between">
 
-    <div class="d-flex">
-        <div class="water pkm-type"></div>
-        <div class="fire pkm-type"></div>
-        <div class="grass pkm-type"></div>
-        <div class="electric pkm-type"></div>
-    </div>
+    
+        <div class="d-flex">
+            <div class="water pkm-type"></div>
+            <div class="fire pkm-type"></div>
+            <div class="grass pkm-type"></div>
+            <div class="electric pkm-type"></div>
+        </div>
 
-    <div>
-        <select class="form-select" aria-label="Default select example" v-model="store.selectedValue" @change="$emit('typeChange')" >
-            <option value="" selected>Open this select menu</option>
-            <option v-for="(type, index) in store.pkmn_types" :key="index" :value="type" >{{type}}</option>
-        </select>
+        <div>
+            <select class="form-select select-bar mt-5" aria-label="Default select example" v-model="store.selectedValue" @change="$emit('typeChange')" >
+                <option value="" selected>Type Select</option>
+                <option v-for="(type, index) in store.pkmn_types" :key="index" :value="type" >{{type}}</option>
+            </select>
+        </div>
     </div>
 </div>   
          
@@ -61,6 +64,10 @@
 .fire{
     background: $pokemon_type_primary_color;
     background: linear-gradient(123deg, $pokemon_type_primary_color 0%, rgba(255,19,19,1) 79%);
+}
+
+.select-bar{
+    width: 150px;
 }
 
     
