@@ -10,11 +10,9 @@
 
         <img :src="MyPokemon.imageUrl" alt=""/>
         <div class="t-size pt-2">
-
             {{MyPokemon.number}}
         </div>
         <div>
-
           <strong> {{MyPokemon.name}}</strong> 
         </div>
         <div class="t-size py-2">

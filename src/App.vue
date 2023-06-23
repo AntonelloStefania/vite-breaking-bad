@@ -13,25 +13,40 @@ import {store} from './store';
     },
     data() {
       return {
-
         store,
         
       }
     },mounted() {
-      axios.get(store.apiUrl).then((response)=> {
-        store.pokemonList = response.data.docs
-        store.loading = false
+      this.getPokemonType()
+    }
+    
+    
+    
+    ,methods:{
+       getPokemonType(){
+              
+          store.myUrl  = store.apiUrl
 
-        console.log(store.pokemonList)
-        console.log(store.loading)
-      })
-      
-    },
+          if(store.selectedValue !== ''){
+              store.myUrl += `&eq[type1]=${store.selectedValue}`
+          }
+
+          
+          axios.get(store.myUrl).then((response)=> {
+            store.pokemonList = response.data.docs
+            store.loading = false
+    
+            console.log(store.pokemonList)
+            console.log(store.loading)
+        })
+      }
+    }
+  
   }
 </script>
 <template>
   <div>
-    <AppPokemonHeader />
+    <AppPokemonHeader @typeChange="getPokemonType" />
   </div>
   <div>
     <AppPokemonMain />

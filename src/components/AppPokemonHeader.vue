@@ -1,5 +1,32 @@
 <script>
+    import {store} from '../store.js'
     export default {
+       components :{
+      
+    
+    },
+    data() {
+        return {
+            store,
+            
+    }
+    },mounted(){
+
+        this.getPokemonType()
+    }
+    
+    ,methods:{
+        getPokemonType(){
+            
+            store.myUrl  = store.apiUrl
+
+            if(store.selectedValue !== ''){
+               store.myUrl += `&eq[type1]=${store.selectedValue}`
+            }
+
+           
+        }
+        }
         
     }
 </script>
@@ -11,6 +38,13 @@
         <div class="fire pkm-type"></div>
         <div class="grass pkm-type"></div>
         <div class="electric pkm-type"></div>
+    </div>
+
+    <div>
+        <select class="form-select" aria-label="Default select example" v-model="store.selectedValue" @change="$emit('typeChange')" >
+            <option value="" selected>Open this select menu</option>
+            <option v-for="(type, index) in store.pkmn_types" :key="index" :value="type" >{{type}}</option>
+        </select>
     </div>
 </div>   
          
