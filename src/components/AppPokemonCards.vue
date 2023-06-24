@@ -47,4 +47,7 @@ img{
     font-size: 12px;
 }
 
+.color-filter{
+    box-shadow: 0px 0px 5px 5px black inset;
+}
 </style>

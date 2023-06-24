@@ -1,4 +1,5 @@
 @import "/node_modules/bootstrap/scss/bootstrap.scss";
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 
 * {
     margin: 0;
@@ -7,5 +8,7 @@
 }
 
 body {
-    background-color: rgba(194, 0, 0, 0.74);
+    background-color: #B71B1B;
+    font-family: 'Bangers', cursive;
+    letter-spacing: 0.1em;
 }

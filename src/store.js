@@ -28,4 +28,6 @@ export const store = reactive({
     searchPokemon: '',
     searchResults: [],
     selectedValue: '',
+    genUrl: '',
+    selectedGen: '',
 })

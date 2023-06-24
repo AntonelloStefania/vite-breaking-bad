@@ -24,6 +24,7 @@ export default {
                 })
             }
         },
+       
 
        
     }, methods: {
@@ -31,7 +32,10 @@ export default {
         resetSearch(){
            store.selectedValue=''
            store.searchPokemon = ''
-       }
+           store.selectedGen=''
+           store.myUrl = store.apiUrl
+       },
+       
     },
 }
 </script>
@@ -46,8 +50,8 @@ export default {
         </div>
         <AppLoader v-else />
         <div class="input-group mb-3 mt-5">
-            <div class="input-group-prepend">
-                <button class=" btn me-1 rounded btn-primary" type="button" @click="resetSearch">Reset</button>
+            <div class="input-group-prepend search-bar">
+                <button class="me-2 rounded reset-btn" type="button" @click="resetSearch">Reset</button>
             </div>
             <input type="text" class="form-control rounded" aria-label="" aria-describedby="basic-addon1"  placeholder="search your pokemon" v-model="store.searchPokemon">
         </div>
@@ -73,4 +77,15 @@ export default {
     }
 
 }
+.reset-btn{
+    background-color: $font_secondary_color ;
+    border: 2px solid $font_primary_color;
+    color: $font_primary_color;
+    padding: 0.5rem;
+
+    &:hover{
+        scale: 1.2;
+    }
+}
+
 </style>
