@@ -12,8 +12,9 @@ export default {
             store
         }
     },computed:{
+
+    //funzione ricerca pokemon
        SearchPokemon(){
-        console.log('ciao')
             if(store.searchPokemon === ''){
                 return  store.pokemonList
             } else{
@@ -26,6 +27,7 @@ export default {
 
        
     }, methods: {
+        //reset ricerca tramite pulsante
         resetSearch(){
            store.selectedValue=''
            store.searchPokemon = ''

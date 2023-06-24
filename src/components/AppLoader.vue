@@ -19,11 +19,12 @@ import{store} from '../store'
 @use '../styles/partials/variables' as *;
 
 .loader-container{
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .custom-loader {
@@ -39,6 +40,7 @@ import{store} from '../store'
     align-items: center;
     position: relative;
     bottom: 15%;
+    
 }
 
 .custom-loader-2 {
