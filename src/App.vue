@@ -19,7 +19,7 @@ import {store} from './store';
     },mounted() {
       this.getPokemonType()
       this.changeGen()
-      this.nextPage()
+
     },methods:{
 
       //scelta per tipo
@@ -56,65 +56,49 @@ import {store} from './store';
        //cambio pagina
         //pagina successiva
         nextPage(){
-           let actualPage= '&page='+ store.current_page
-          if(store.current_page < store.totalPages){
+           let pageNext= store.pageString + store.current_page
+          if(store.current_page <= store.totalPages){
             store.current_page++
             
-            let pageUrl = store.myUrl + actualPage
+            let pageUrl = store.myUrl + pageNext
            
             axios.get(pageUrl).then((response)=> {
               store.pokemonList = response.data.docs})
               store.loading = false
-                console.log(pageUrl)
-                return pageUrl, actualPage
+              return pageUrl, pageNext
           }else{
-            store.current_page=1
-            let pageUrl = store.myUrl + '&page='+ store.current_page
+            store.current_page= store.minPage
+            let pageUrl = store.myUrl + store.pageString + store.current_page
             
             axios.get(pageUrl).then((response)=> {
               store.pokemonList = response.data.docs})
               store.loading = false
-            return pageUrl, actualPage
+            return pageUrl
           }
         },
           //pagina precedente
           prevPage(pageUrl){
-            //funziona singolarmente probabilmente perché anziché sovrascrivere il filtro aggiunge un'altra parte di stringa che manda in blocco,
-            //possibile soluzione: spostare nello store una variabile che contenga la prima parte dell'url in modo da dover solo aggiungere il numero e inserire il tutto in myUrl
-            let firstPrevPage = store.current_page - 1;
-            console.log(firstPrevPage)
-            
-           if(firstPrevPage <= store.minPage){
-              firstPrevPage = store.totalPages
-              let actualPage = '&page='+ store.totalPages
-              store.totalPages--
-              pageUrl = store.myUrl + actualPage
-              console.log(pageUrl)
+           if(store.current_page <= store.minPage){
+              let last_page = store.totalPages
+              last_page--
+              store.current_page = store.totalPages
+              let pagePrev = store.pageString + last_page
+              pageUrl = store.myUrl + pagePrev
 
-                axios.get(pageUrl).then((response)=> {
+              axios.get(pageUrl).then((response)=> {
                 store.pokemonList = response.data.docs})
                 store.loading = false
-                console.log(actualPage)
-             return firstPrevPage, actualPage, store.myUrl, pageUrl
+             return  pagePrev, store.myUrl, pageUrl, last_page
+           }else{
+              store.current_page--
+              let pagePrev =store.pageString+ store.current_page
+              pageUrl= store.myUrl + pagePrev
+
+              axios.get(pageUrl).then((response)=> {
+                store.pokemonList = response.data.docs})
+                store.loading = false
            }
-            //  else{
-            //    store.current_page--
-
-            //    let prevPageUrl= store.myUrl + actualPage
-            //    console.log(prevPageUrl)
-
-            //    axios.get(prevPageUrl).then((response)=> {
-            //    store.pokemonList = response.data.docs})
-            //    store.loading = false
-            //    return prevPageUrl
-
-            //  }
           }
-          
-   
-
-          
-      
     }
   
   }

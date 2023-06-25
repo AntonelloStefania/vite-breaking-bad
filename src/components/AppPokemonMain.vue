@@ -35,8 +35,7 @@ export default {
            store.selectedGen=''
            store.myUrl = store.apiUrl
        },  
-          
-     
+      
     }
         
     
@@ -56,9 +55,9 @@ export default {
         <AppLoader v-else />
 
         <!-- pulsanti pag-next pag-prev -->
-        <div class="col-12 d-flex justify-content-between btn-position">
-            <button class="btn btn-warning " @click="$emit('prev_page')">prev</button>
-            <button class="btn btn-warning " @click="$emit('next_page')">next</button>
+        <div class="col-12 d-flex justify-content-between btn-position" @click="resetSearch">
+            <button class="btn btn-custom " @click="$emit('prev_page')">prev</button>
+            <button class="btn btn-custom " @click="$emit('next_page')">next</button>
         </div>
 
         <!-- barra di ricerca -->
@@ -104,6 +103,13 @@ export default {
 .btn-position{
     position:absolute;
     top:40%;
+
+    .btn-custom{
+        background-color:$font_primary_color;
+        border: 2px solid $font_secondary_color;
+        border-radius: 5rem;
+        padding:1rem
+    }
 }
 
 </style>

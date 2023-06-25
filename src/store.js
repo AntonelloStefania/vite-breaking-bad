@@ -1,7 +1,7 @@
 import { reactive } from 'vue';
 
 export const store = reactive({
-    apiUrl: 'https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?per=40',
+    apiUrl: 'https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?per=20',
     myUrl: '',
     pokemonList: [],
     loading: true,
@@ -31,7 +31,7 @@ export const store = reactive({
     genUrl: '',
     selectedGen: '',
     pageUrl: '',
-    actualPage: '',
+    pageString: '&page=',
     totalPages: 27,
     minPage: 1,
     current_page: 1,
