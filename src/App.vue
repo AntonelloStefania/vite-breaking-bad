@@ -21,6 +21,8 @@ import {store} from './store';
       this.changeGen()
       this.nextPage()
     },methods:{
+
+      //scelta per tipo
         getPokemonType(){
               
           store.myUrl  = store.apiUrl
@@ -36,6 +38,7 @@ import {store} from './store';
             store.loading = false
         })
       },
+      //scelta per generazione
         changeGen() {
            if(store.selectedGen !== ''){
              store.myUrl +=  `${store.genUrl}${store.selectedGen}`;
@@ -53,19 +56,30 @@ import {store} from './store';
        //cambio pagina
         nextPage(){
            let actualPage= '&page='+ store.current_page
+          if(store.current_page < store.totalPages){
+            console.log('we')
+            store.current_page++
+            
+            let pageUrl = store.myUrl + actualPage
+            console.log(actualPage)
+            console.log(pageUrl)
+
+            axios.get(pageUrl).then((response)=> {
+              store.pokemonList = response.data.docs})
+              store.loading = false
+            
+                return pageUrl
+          }else{
+            store.current_page=1
+            let pageUrl = store.myUrl + '&page='+ store.current_page
+            
+            axios.get(pageUrl).then((response)=> {
+              store.pokemonList = response.data.docs})
+              store.loading = false
+            return store.pageUrl
+          }
           
-          store.current_page++
-          
-          let pageUrl = store.myUrl + actualPage
-          console.log(actualPage)
-          console.log(pageUrl)
-          
-          axios.get(pageUrl).then((response)=> {
-            store.pokemonList = response.data.docs})
-            store.loading = false
     
-      
-          return pageUrl
         }
    
 
