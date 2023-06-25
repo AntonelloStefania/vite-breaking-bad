@@ -9,7 +9,8 @@ export default {
     },
     data() {
         return {
-            store
+            store,
+            
         }
     },computed:{
 
@@ -24,9 +25,8 @@ export default {
                 })
             }
         },
-       
 
-       
+        
     }, methods: {
         //reset ricerca tramite pulsante
         resetSearch(){
@@ -34,21 +34,34 @@ export default {
            store.searchPokemon = ''
            store.selectedGen=''
            store.myUrl = store.apiUrl
-       },
-       
-    },
+       },  
+          
+     
+    }
+        
+    
 }
 </script>
 <template >
-    <div class="container  mt-5">
+    <div class="container  mt-5 position-relative">
+        <!-- cards -->
         <div class="d-flex justify-content-center"  v-if="store.loading === false">
             <div class="row justify-content-center pokedex p-2 " >
                 <div v-for="(pokemon, index) in SearchPokemon" :key="index" class="col-6 col-md-4 col-lg-3 pkmn-card">
                     <AppPokemonCards :MyPokemon="pokemon" />
                 </div>
             </div>
+            
         </div>
         <AppLoader v-else />
+
+        <!-- pulsanti pag-next pag-prev -->
+        <div class="col-12 d-flex justify-content-between btn-position">
+            <button class="btn btn-warning ">prev</button>
+            <button class="btn btn-warning " @click="$emit('next_page')">next</button>
+        </div>
+
+        <!-- barra di ricerca -->
         <div class="input-group mb-3 mt-5">
             <div class="input-group-prepend search-bar">
                 <button class="me-2 rounded reset-btn" type="button" @click="resetSearch">Reset</button>
@@ -86,6 +99,11 @@ export default {
     &:hover{
         scale: 1.2;
     }
+}
+
+.btn-position{
+    position:absolute;
+    top:40%;
 }
 
 </style>

@@ -18,7 +18,8 @@ import {store} from './store';
       }
     },mounted() {
       this.getPokemonType()
-      // this.changeGen()
+      this.changeGen()
+      this.nextPage()
     },methods:{
         getPokemonType(){
               
@@ -42,12 +43,34 @@ import {store} from './store';
              store.myUrl = store.apiUrl 
            }
           
-          axios.get(store.myUrl).then((response)=> {
-            store.pokemonList = response.data.docs
-            store.loading = false
-        })
+           axios.get(store.myUrl).then((response)=> {
+             store.pokemonList = response.data.docs
+             store.loading = false
+         })
           
         },
+        
+       //cambio pagina
+        nextPage(){
+           let actualPage= '&page='+ store.current_page
+          
+          store.current_page++
+          
+          let pageUrl = store.myUrl + actualPage
+          console.log(actualPage)
+          console.log(pageUrl)
+          
+          axios.get(pageUrl).then((response)=> {
+            store.pokemonList = response.data.docs})
+            store.loading = false
+    
+      
+          return pageUrl
+        }
+   
+
+          
+      
     }
   
   }
@@ -57,7 +80,7 @@ import {store} from './store';
     <AppPokemonHeader @typeChange="getPokemonType" @genChange="changeGen"/>
   </div>
   <div>
-    <AppPokemonMain />
+    <AppPokemonMain @next_page="nextPage"/>
   </div>
 </template>
 <style lang="scss">

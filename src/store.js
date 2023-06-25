@@ -30,4 +30,8 @@ export const store = reactive({
     selectedValue: '',
     genUrl: '',
     selectedGen: '',
+    pageUrl: '',
+    actualPage: '',
+    totalPages: 27,
+    current_page: 1,
 })
