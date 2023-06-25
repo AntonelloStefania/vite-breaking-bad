@@ -33,5 +33,7 @@ export const store = reactive({
     pageUrl: '',
     actualPage: '',
     totalPages: 27,
+    minPage: 1,
     current_page: 1,
+
 })

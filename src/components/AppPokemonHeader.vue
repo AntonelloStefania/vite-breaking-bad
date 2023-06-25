@@ -44,7 +44,7 @@
             </select>
         </div>
         <div class="">
-            <label class="me-4 fw-bold" for="">Choose by generation</label>
+            <label class="me-4 fw-bold d-none d-lg-inline" for="">Choose by generation</label>
             <select class="select-bar gen-select" v-model="store.selectedGen" @click="resetMyUrl()"  @change="$emit('genChange')">
                 <option value="" selected></option>
                 <option v-for="(genUrl,index) in getPokemonGeneration" :key="index">{{index}}</option>

@@ -57,7 +57,7 @@ export default {
 
         <!-- pulsanti pag-next pag-prev -->
         <div class="col-12 d-flex justify-content-between btn-position">
-            <button class="btn btn-warning ">prev</button>
+            <button class="btn btn-warning " @click="$emit('prev_page')">prev</button>
             <button class="btn btn-warning " @click="$emit('next_page')">next</button>
         </div>
 
