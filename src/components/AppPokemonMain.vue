@@ -83,6 +83,7 @@ export default {
     border-right: $pokedex_x_border;
     border-radius: 1rem;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.575);
+    
 
     .pkmn-card {
         min-width: 180px;
@@ -108,7 +109,8 @@ export default {
         background-color:$font_primary_color;
         border: 2px solid $font_secondary_color;
         border-radius: 5rem;
-        padding:1rem
+        padding:1rem;
+        box-shadow: rgba(0, 0, 0, 0.8) 0px 2px 4px, rgba(0, 0, 0, 0.5) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     }
 }
 
